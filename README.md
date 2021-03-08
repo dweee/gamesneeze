@@ -71,16 +71,17 @@ An open source cheat for Counter-Strike: Global Offensive on Linux.
 
 `sudo pacman -S base-devel git cmake gdb` (or if you don't like installing actual useful packages) `sudo pacman -S gcc sdl make git cmake gdb`
 
+### Fedora required packages:
+
+`sudo dnf install gcc gdb sdl2-devel cmake git`
+
+
 ```sh
 git clone https://github.com/seksea/gamesneeze
 cd gamesneeze
 chmod +x toolbox.sh
 sudo ./toolbox.sh -u -b -l # unload cheat if currently injected, build and then load, use -h for help
 ```
-
-### Fedora required packages:
-
-`sudo dnf install gcc gdb sdl2-devel cmake git`
 
 ## Basic toolbox.sh usage
 
