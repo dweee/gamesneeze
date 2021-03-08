@@ -9,13 +9,15 @@
   <a href="https://discord.gg/SCHsWHFJMb"><img src="https://img.shields.io/badge/Chat-Discord-blue.svg" alt="Discord"></a>
 </p>
 
-An open source cheat for Counter-Strike: Global Offensive on linux.
+An open source cheat for Counter-Strike: Global Offensive on Linux.
 
 ## :warning: :warning: THIS IS A CHEAT FOR LINUX, IT WILL NOT INJECT IF YOU ARE ON WINDOWS, AND I'M NOT PLANNING ON PORTING ANYTIME SOON, DO NOT JOIN THE DISCORD ASKING FOR DLL :warning: :warning:
 
 
 ## Current Features
+
 ### Interfaces
+
  - Interfaces::client
  - Interfaces::engine
  - Interfaces::panel
@@ -26,7 +28,10 @@ An open source cheat for Counter-Strike: Global Offensive on linux.
  - Interfaces::modelRender
  - Interfaces::modelInfo
  - Interfaces::materialSystem
+
+
 ### Hooks
+
  - CreateMove
  - PaintTraverse
  - SwapWindow
@@ -34,23 +39,38 @@ An open source cheat for Counter-Strike: Global Offensive on linux.
  - DrawModelExecute
  - FrameStageNotify
  - Paint
+
+
 ### Features
+
  - Chams
  - ESP
  - Weapon ESP
  - Chicken/Fish ESP
- - World Colour Modulation
+ - World colour modulation
  - Force square radar
- - Recoil Crosshair
- - Rank Revealer
+ - Recoil crosshair
+ - Rank revealer
  - Radio fake ban/fake chat
  - Clantag (and pBeeMovie clantag)
+
+
 ### Others
+
  - Basic GDB injector
  - ImGui menu
 
 
 ## How to use
+
+### Debian / Ubuntu / Pop OS / Linux Mint required packages:
+
+`sudo apt install -y libsdl2-dev gcc-10 g++-10 gdb`
+
+### Arch / Manjaro required packages:
+
+`sudo pacman -S base-devel git cmake gdb` (or if you don't like installing actual useful packages) `sudo pacman -S gcc sdl make git cmake gdb`
+
 ```sh
 git clone https://github.com/seksea/gamesneeze
 cd gamesneeze
@@ -58,7 +78,12 @@ chmod +x toolbox.sh
 sudo ./toolbox.sh -u -b -l # unload cheat if currently injected, build and then load, use -h for help
 ```
 
+### Fedora required packages:
+
+`sudo dnf install gcc gdb sdl2-devel cmake git`
+
 ## Basic toolbox.sh usage
+
 | Argument          | Description                           |
 | ----------------- | ------------------------------------- |
 | -u (--unload)     | Unload the cheat from CS:GO if loaded |
@@ -69,48 +94,18 @@ sudo ./toolbox.sh -u -b -l # unload cheat if currently injected, build and then 
 All args are executed in the order they are written in, for example, "-u -b -l" would unload the cheat, build it, and then load it back into csgo.
 
 
-## Found a bug/want to add something?
+## Found a bug or want to contribute to the project?
+
  - [Create a pull request](https://github.com/seksea/gamesneeze/compare) ([tutorial](https://github.com/yangsu/pull-request-tutorial))
  - [Report a bug](https://github.com/seksea/gamesneeze/issues/new)
 
 ## [Todo](https://github.com/seksea/gamesneeze/projects/1)
 
-## Code style
- - Interfaces layed out like this (func names, arg names and comments typed as in the [2015 leak](https://github.com/perilouswithadollarsign/cstrike15_src) or the [source sdk](https://github.com/ValveSoftware/source-sdk-2013)):
-```cpp
-// https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/cdll_int.h#L194
-class IVEngineClient {
-public:
-  // Gets the dimensions of the game window
-  void GetScreenSize(int& width, int& height) {
-	  typedef void (*Fn)(void*, int&, int&);
-	  return getVirtualFunc<Fn>(this, 5)(this, width, height);
-  }
-  // etc...
-}
-```
- - Namespaces start with capital letter:
-```cpp
-namespace Log {};
-namespace Hooks {};
-//etc...
-```
- - lowerCamelCase for everything except stuff ripped from source sdk:
-```cpp
-class InterfaceReg {
-public:
-    InstantiateInterfaceFn m_CreateFn;
-    const char* m_pName;
-    InterfaceReg* m_pNext;
-};
-```
- - filenames all lowercase:
-```
-createmove.cpp
-ibaseclientdll.hpp
-hooks.hpp
-```
+## FAQ
+
+ -
 
 ## Screenshots
+
 ![Console Output](res/console.png)
 ![Choms Output](res/chams.png)
